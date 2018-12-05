@@ -15,7 +15,10 @@ var userSchema = new mongoose.Schema({
         required: 'Password can\'t be empty',
         minlength: [4, 'Password must be atleast 4 character long']
     },
+
+    address:{type:String},
 tel:{type:String},
+role:{type:String},
     freeland : { type:  String  },
     sheltered: { type:  String  },
     car: { type:  String  },
@@ -29,10 +32,17 @@ tel:{type:String},
     vehicles: { type: String },
     street:{ type:  String  },
     city: { type:  String },
-    state: { type:  String  },
+    country: { type:  String  },
     zip:{ type:  String },
     saltSecret:{type: String},
-    temptoken:{type : String}
+    temptoken:{type : String},
+    name:{type : String},
+    ownerid:{type : String},
+    state:{type : String},
+    isactivate:{type : String},
+    lat:{type:String},
+    lng:{type:String},
+    saltSecret : {type:String},
 });
 
 // Custom validation for email
@@ -51,6 +61,8 @@ userSchema.pre('save', function (next) {
         });
     });
 });
+
+
 
 
 // Methods
